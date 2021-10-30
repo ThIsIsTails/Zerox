@@ -43,7 +43,6 @@ async def cog(ctx, param, file):
             )
             await ctx.reply(embed=embed)
             return
-            return
         except Exception as error:
             embed = discord.Embed(
                 title="Error: Extension error",
@@ -63,7 +62,6 @@ async def cog(ctx, param, file):
                 timestamp=datetime.datetime.now(datetime.timezone.utc)
             )
             await ctx.reply(embed=embed)
-            return
             return
         except Exception as error:
             embed = discord.Embed(
