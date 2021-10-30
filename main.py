@@ -36,7 +36,13 @@ async def cog(ctx, param, file):
         try:
             client.load_extension(f"commands.{file}")
             print(f"Extension {file} was loaded.")
-            await ctx.message.add_reaction(":white_check_mark:")
+            embed = discord.Embed(
+                title="Success",
+                color=discord.Color.green(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc)
+            )
+            await ctx.reply(embed=embed)
+            return
             return
         except Exception as error:
             embed = discord.Embed(
@@ -51,7 +57,13 @@ async def cog(ctx, param, file):
         try:
             client.reload_extension(f"commands.{file}")
             print(f"Extension {file} was reloaded.")
-            await ctx.message.add_reaction(":white_check_mark:")
+            embed = discord.Embed(
+                title="Success",
+                color=discord.Color.green(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc)
+            )
+            await ctx.reply(embed=embed)
+            return
             return
         except Exception as error:
             embed = discord.Embed(
@@ -66,7 +78,12 @@ async def cog(ctx, param, file):
         try:
             client.unload_extension(f"commands.{file}")
             print(f"Extension {file} was unloaded.")
-            await ctx.message.add_reaction(":white_check_mark:")
+            embed = discord.Embed(
+                title="Success",
+                color=discord.Color.green(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc)
+            )
+            await ctx.reply(embed=embed)
             return
         except Exception as error:
             embed = discord.Embed(
