@@ -19,6 +19,18 @@ def check_perms(author: discord.Member, permission: str) -> bool:
 
     return author.id in js[permission]
 
+def check_role_perms(author: discord.Member, permission: str) -> bool:
+    """
+    Чекает права через role/settings.json и если указаного парва нету то вернёт false.
+
+    :param author: Юзер который использует команду.
+    :param permission: Право которое нужно.
+    :return: Может ли юзер использовать команду или нет (True/False).
+    """
+
+    js = json(os.path.join("./role/settings.json")).get_list()["permissions"]
+
+    return author.id in js[permission]
 
 def ts() -> datetime:
     return datetime.datetime.now(datetime.timezone.utc)

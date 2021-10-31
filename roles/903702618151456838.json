@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "all": true,
+    "say": false,
+    "mre": false
+  }
+}

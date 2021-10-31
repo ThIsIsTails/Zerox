@@ -18,12 +18,6 @@ class say(commands.Cog):
         options=
         [
             {
-                "name": "description",
-                "type": 3,
-                "required": True,
-                "description": "Описание"
-            },
-            {
                 "choices": [
                     {
                         "value": "default",
@@ -48,8 +42,14 @@ class say(commands.Cog):
                 ],
                 "name": "color",
                 "type": 3,
-                "required": False,
+                "required": True,
                 "description": "Цвет",
+            },
+            {
+                "name": "description",
+                "type": 3,
+                "required": False,
+                "description": "Описание"
             },
             {
                 "name": "title",
@@ -66,7 +66,7 @@ class say(commands.Cog):
         ]
     )
     async def _say(self, ctx: SlashContext,
-                   description: str,
+                   description: str = None,
                    title: str = None,
                    color: str = "default",
                    large_image = None):
@@ -103,6 +103,11 @@ class say(commands.Cog):
         if title is None:
             embed = discord.Embed(
                 description=description,
+                color=c
+            )
+
+        if description is None:
+            embed = discord.Embed(
                 color=c
             )
 
